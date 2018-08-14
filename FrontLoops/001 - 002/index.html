@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loop 1 - Step 2</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="div--checkout">
+    <section class="div--checkout-heading">
+      <div class="div--dots">
+        <span class="div--dots-selected">•</span>
+        <span>•</span>
+        <span>•</span>
+      </div>
+      <h1>payment method</h1>
+    </section>
+    <section class="section--checkout" onclick="setSelected(this)">
+      <img class="img--visa card" src="./img/visa.svg" alt="visa"> <span>visa</span>
+    </section>
+    <section class="section--checkout section--checkout-selected" onclick="setSelected(this)">
+      <img class="img--mastercard card" src="./img/mastercard.svg" alt="mastercard"> <span>mastercard</span>
+    </section>
+    <section class="section--checkout" onclick="setSelected(this)">
+      <img class="img--maestro card" src="./img/maestro.svg" alt="maestro"> <span>maestro</span>
+    </section>
+    <button>next step →</button>
+  </div>
+
+  <script>
+    function setSelected(selected) {
+      let cardSelectors = [].slice.call(document.getElementsByClassName("section--checkout-selected"));
+      if (!selected.classList.contains("section--checkout-selected"))
+        cardSelectors.forEach(element => {
+          if (element.classList.contains("section--checkout-selected")) {
+            element.classList.remove("section--checkout-selected")
+          }
+        });
+      selected.classList.add("section--checkout-selected");
+    }
+  </script>
+</body>
+
+</html>
