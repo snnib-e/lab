@@ -20,16 +20,17 @@
       </div>
       <h1>payment method</h1>
     </section>
-    <section class="section--checkout" onclick="setSelected(this)">
+    <section class="section--checkout" onclick="setSelected(this)" onkeypress="setSelected(this)" role="option" tabindex="0">
       <img class="img--visa card" src="./img/visa.svg" alt="visa"> <span>visa</span>
     </section>
-    <section class="section--checkout section--checkout-selected" onclick="setSelected(this)">
+    <section class="section--checkout section--checkout-selected" onclick="setSelected(this)" onkeypress="setSelected(this)"
+      role="option" tabindex="0">
       <img class="img--mastercard card" src="./img/mastercard.svg" alt="mastercard"> <span>mastercard</span>
     </section>
-    <section class="section--checkout" onclick="setSelected(this)">
+    <section class="section--checkout" onclick="setSelected(this)" onkeypress="setSelected(this)" role="option" tabindex="0">
       <img class="img--maestro card" src="./img/maestro.svg" alt="maestro"> <span>maestro</span>
     </section>
-    <button>next step →</button>
+    <button tabindex="0">next step →</button>
   </div>
 
   <script>
