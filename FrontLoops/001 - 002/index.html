@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Loop 1 - Step 2</title>
+  <title>Checkout</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -14,35 +14,95 @@
   <div class="div--checkout">
     <section class="div--checkout-heading">
       <div class="div--dots">
-        <span class="div--dots-selected">•</span>
-        <span>•</span>
-        <span>•</span>
+        <span class="div--dots-selected" aria-hidden="true">•</span>
+        <span aria-hidden="true">•</span>
+        <span aria-hidden="true">•</span>
       </div>
-      <h1>payment method</h1>
+      <h1 tabindex="0" role="heading">payment method</h1>
     </section>
-    <section class="section--checkout" onclick="setSelected(this)" onkeypress="setSelected(this)" role="option" tabindex="0">
-      <img class="img--visa card" src="./img/visa.svg" alt="visa"> <span>visa</span>
+    <section class="section--checkout" onclick="setSelected(event)" onkeypress="setSelected(event)" role="button" aria-pressed="false"
+      tabindex="0">
+      <img class="img--visa card" src="./img/visa.svg" alt="visa"> <span aria-hidden="true">visa</span>
     </section>
-    <section class="section--checkout section--checkout-selected" onclick="setSelected(this)" onkeypress="setSelected(this)"
-      role="option" tabindex="0">
-      <img class="img--mastercard card" src="./img/mastercard.svg" alt="mastercard"> <span>mastercard</span>
+    <section class="section--checkout section--checkout-selected" onclick="setSelected(event)" onkeypress="setSelected(event)"
+      aria-pressed="true" role="button" tabindex="0">
+      <img class="img--mastercard card" src="./img/mastercard.svg" alt="mastercard"> <span aria-hidden="true">mastercard</span>
     </section>
-    <section class="section--checkout" onclick="setSelected(this)" onkeypress="setSelected(this)" role="option" tabindex="0">
-      <img class="img--maestro card" src="./img/maestro.svg" alt="maestro"> <span>maestro</span>
+    <section class="section--checkout" onclick="setSelected(event)" onkeypress="setSelected(event)" role="button" aria-pressed="false"
+      tabindex="0">
+      <img class="img--maestro card" src="./img/maestro.svg" alt="maestro" aria-hidden="true"> <span>maestro</span>
     </section>
-    <button tabindex="0">next step →</button>
+    <button id="submit--button" tabindex="0" aria-pressed="false" onkeypress="submit(event)">next step →</button>
   </div>
 
   <script>
-    function setSelected(selected) {
-      let cardSelectors = [].slice.call(document.getElementsByClassName("section--checkout-selected"));
-      if (!selected.classList.contains("section--checkout-selected"))
-        cardSelectors.forEach(element => {
-          if (element.classList.contains("section--checkout-selected")) {
-            element.classList.remove("section--checkout-selected")
-          }
-        });
-      selected.classList.add("section--checkout-selected");
+    function setSelected(event) {
+      // if key is space or enter or mouseclick
+      if (event.key === " " || event.key === "Enter" || event.type === "click") {
+        // Remove all selects
+        let submitButton = document.getElementById("submit--button");
+        // let cardSelectors = [].slice.call(document.getElementsByClassName("section--checkout-selected"));
+        // cardSelectors.forEach(element => {
+        //   if (element.classList.contains("section--checkout-selected") && element.getAttribute("aria-pressed")) {
+        //     element.classList.remove("section--checkout-selected");
+        //     element.setAttribute("aria-pressed", "false");
+        //     submitButton.disabled = true;
+        //     submitButton.innerText = "Select a card";
+        //   }
+        // });
+        // If not selected and aria pressed is false
+        let selected = null;
+        let result = event.target;
+        if (result.parentNode.className !== "div--checkout") {
+          selected = result.parentNode;
+        } else {
+          selected = result;
+        }
+        console.log(selected);
+        if (selected.classList.contains("section--checkout-selected")) {
+          console.log("yo");
+          selected.classList.remove("section--checkout-selected");
+          selected.classList.add("section--checkout-not-selected");
+          selected.setAttribute("aria-pressed", "false");
+          submitButton.disabled = true;
+          submitButton.innerText = "Select a card";
+          // else it is selected and aria pressed is true
+        }
+        else {
+          let submitButton = document.getElementById("submit--button");
+          let cardSelectors = [].slice.call(document.getElementsByClassName("section--checkout-selected"));
+          cardSelectors.forEach(element => {
+            if (element.classList.contains("section--checkout-selected") && element.getAttribute("aria-pressed")) {
+              element.classList.remove("section--checkout-selected");
+              selected.classList.add("section--checkout-not-selected");
+
+              element.setAttribute("aria-pressed", "false");
+              submitButton.disabled = true;
+              submitButton.innerText = "Select a card";
+            }
+          });
+          selected.classList.add("section--checkout-selected");
+          selected.classList.remove("section--checkout-not-selected");
+
+          selected.setAttribute("aria-pressed", "true");
+          submitButton.disabled = false;
+          submitButton.innerText = "next step →";
+        }
+        //  else if (selected.classList.contains("section--checkout-selected") && selected.getAttribute("aria-pressed")) {
+        //   // deselect it and set aria pressed to false
+        //   console.log("4");
+        //   selected.classList.remove("section--checkout-selected");
+        //   selected.setAttribute("aria-pressed", "false");
+        // }
+      }
+    }
+    function submit(event) {
+      var submit = event.target;
+      if (event.key === " " || event.key === "Enter" || event.type === "click") {
+        if (submit.getAttribute("aria-pressed") !== "true") {
+          submit.setAttribute("aria-pressed", "true");
+        }
+      }
     }
   </script>
 </body>
