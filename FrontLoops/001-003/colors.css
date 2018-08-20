@@ -1,0 +1,111 @@
+:root {
+  --color--awesome-pink: #FF2372;
+  --color--han-purple: #6610F2;
+  --color--electric-purple: #C200FB;
+  --color--mikado-yellow: #FFBE0B;
+  --color--vivid-orange: #FF600B;
+  --color--ferrari-red: #FF2800;
+  --color--spring-green: #00F0B5;
+  --color--hacker-green: #46F909;
+  --color--electric-blue: #56F4FA;
+  --color--classic-blue: #2475FF;
+  --color--gunmetal-gray: #2D3047;
+  --color--spanish-gray: #929398;
+  --color--light-gray: #D2D2D7;
+  --color--soft-gray: #EBEBF0;
+  --color--white: #F9F9F9;
+  --color--black: #141414;
+}
+
+.color--awesome-pink-layer {
+  background-color: var(--color--awesome-pink);
+}
+.color--han-purple-layer {
+  background-color: var(--color--han-purple);
+}
+.color--electric-purple-layer {
+  background-color: var(--color--electric-purple);
+}
+.color--mikado-yellow-layer {
+  background-color: var(--color--mikado-yellow);
+}
+.color--vivid-orange-layer {
+  background-color: var(--color--vivid-orange);
+}
+.color--ferrari-red-layer {
+  background-color: var(--color--ferrari-red);
+}
+.color--spring-green-layer {
+  background-color: var(--color--spring-green);
+}
+.color--hacker-green-layer {
+  background-color: var(--color--hacker-green);
+}
+.color--electric-blue-layer {
+  background-color: var(--color--electric-blue);
+}
+.color--classic-blue-layer {
+  background-color: var(--color--classic-blue);
+}
+.color--gunmetal-gray-layer {
+  background-color: var(--color--gunmetal-gray);
+}
+.color--spanish-gray-layer {
+  background-color: var(--color--spanish-gray);
+}
+.color--light-gray-layer {
+  background-color: var(--color--light-gray);
+}
+.color--soft-gray-layer {
+  background-color: var(--color--soft-gray);
+}
+.color--snow-white-layer {
+  background-color: var(--color--snow-white);
+}
+
+.color--awesome-pink-text {
+  color: var(--color--awesome-pink);
+}
+.color--han-purple-text {
+  color: var(--color--han-purple);
+}
+.color--electric-purple-text {
+  color: var(--color--electric-purple);
+}
+.color--mikado-yellow-text {
+  color: var(--color--mikado-yellow);
+}
+.color--vivid-orange-text {
+  color: var(--color--vivid-orange);
+}
+.color--ferrari-red-text {
+  color: var(--color--ferrari-red);
+}
+.color--spring-green-text {
+  color: var(--color--spring-green);
+}
+.color--hacker-green-text {
+  color: var(--color--hacker-green);
+}
+.color--electric-blue-text {
+  color: var(--color--electric-blue);
+}
+.color--classic-blue-text {
+  color: var(--color--classic-blue);
+}
+.color--gunmetal-gray-text {
+  color: var(--color--gunmetal-gray);
+}
+.color--spanish-gray-text {
+  color: var(--color--spanish-gray);
+}
+.color--light-gray-text {
+  color: var(--color--light-gray);
+}
+.color--soft-gray-text {
+  color: var(--color--soft-gray);
+}
+.color--snow-white-text {
+  color: var(--color--snow-white);
+}
+

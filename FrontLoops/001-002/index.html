@@ -37,36 +37,19 @@
 
   <script>
     function setSelected(event) {
-      // if key is space or enter or mouseclick
       if (event.key === " " || event.key === "Enter" || event.type === "click") {
-        // Remove all selects
         let submitButton = document.getElementById("submit--button");
-        // let cardSelectors = [].slice.call(document.getElementsByClassName("section--checkout-selected"));
-        // cardSelectors.forEach(element => {
-        //   if (element.classList.contains("section--checkout-selected") && element.getAttribute("aria-pressed")) {
-        //     element.classList.remove("section--checkout-selected");
-        //     element.setAttribute("aria-pressed", "false");
-        //     submitButton.disabled = true;
-        //     submitButton.innerText = "Select a card";
-        //   }
-        // });
-        // If not selected and aria pressed is false
-        let selected = null;
         let result = event.target;
+        let selected = result;
         if (result.parentNode.className !== "div--checkout") {
           selected = result.parentNode;
-        } else {
-          selected = result;
         }
-        console.log(selected);
         if (selected.classList.contains("section--checkout-selected")) {
-          console.log("yo");
           selected.classList.remove("section--checkout-selected");
           selected.classList.add("section--checkout-not-selected");
           selected.setAttribute("aria-pressed", "false");
           submitButton.disabled = true;
           submitButton.innerText = "Select a card";
-          // else it is selected and aria pressed is true
         }
         else {
           let submitButton = document.getElementById("submit--button");
@@ -75,7 +58,6 @@
             if (element.classList.contains("section--checkout-selected") && element.getAttribute("aria-pressed")) {
               element.classList.remove("section--checkout-selected");
               selected.classList.add("section--checkout-not-selected");
-
               element.setAttribute("aria-pressed", "false");
               submitButton.disabled = true;
               submitButton.innerText = "Select a card";
@@ -83,17 +65,10 @@
           });
           selected.classList.add("section--checkout-selected");
           selected.classList.remove("section--checkout-not-selected");
-
           selected.setAttribute("aria-pressed", "true");
           submitButton.disabled = false;
           submitButton.innerText = "next step →";
         }
-        //  else if (selected.classList.contains("section--checkout-selected") && selected.getAttribute("aria-pressed")) {
-        //   // deselect it and set aria pressed to false
-        //   console.log("4");
-        //   selected.classList.remove("section--checkout-selected");
-        //   selected.setAttribute("aria-pressed", "false");
-        // }
       }
     }
     function submit(event) {
