@@ -1,0 +1,170 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-family: "Overpass", sans-serif;
+}
+
+body {
+  display: flex;
+
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cfdde8+0,809eb8+100 */
+  background: #cfdde8; /* Old browsers */
+  background: -moz-linear-gradient(top, #cfdde8 0%, #809eb8 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #cfdde8 0%,#809eb8 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #cfdde8 0%,#809eb8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfdde8', endColorstr='#809eb8',GradientType=0 ); /* IE6-9 */
+}
+
+.div--chat-window {
+  display: grid;
+  width: 400px;
+  height: 480px;
+  margin: auto;
+  grid-template-rows: 60px 365px 55px;
+
+  background-color: white;
+}
+
+.div--chat-recipient {
+  display: grid;
+  padding: 20px;
+  align-items: center;
+  grid-template-columns: auto 1fr 1fr;
+
+  font-size: 1em;
+  list-style: inside;
+  text-transform: uppercase;
+  color: white;
+  background-color: #6a96d8;
+}
+.div--chat-recipient:before {
+  display: list-item;
+
+  content: "";
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.div--chat-recipient > span {
+  margin-left: -8px;
+
+  line-height: 16px;
+}
+.div--chat-recipient > button {
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  justify-self: end;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline-width: 2px;
+  outline-color: orange;
+}
+.div--chat-recipient > button > img {
+  height: 20px;
+
+  opacity: 0.5;
+  vertical-align: middle;
+}
+.div--chat-area {
+  display: flex;
+  padding-bottom: 20px;
+  flex-direction: column;
+
+  overflow: hidden;
+  overflow-y: visible;
+}
+
+.chat--day {
+  display: grid;
+  grid-template-columns: auto 80px auto;
+  align-items: center;
+  margin: 10px 20px;
+}
+.chat--day > .line {
+  border-bottom: 1px solid #dddddd;
+}
+.chat--day > span {
+  color: #dee0e4;
+  text-align: center;
+}
+.chat--line {
+  margin: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.chat-bubble {
+  padding: 11px 13px;
+  color: #070000;
+}
+
+.chat-from {
+  align-self: flex-end;
+
+  background-color: #f2f2f2;
+}
+
+.chat-to {
+  align-self: flex-start;
+
+  background-color: #e6edf6;
+}
+
+.chat-blocked {
+  align-self: flex-end;
+
+  background-color: #ffc2c1;
+  text-align: right;
+}
+
+.chat--bubble {
+  padding: 5px 10px;
+  border-radius: 4px;
+  max-width: 270px;
+}
+
+.chat--bubble-timestamp {
+  color: #b8b6b6;
+  background: none;
+}
+
+.div--chat-input {
+  margin: 0px 20px;
+  padding: 12px 0px;
+
+  border-top: 1px solid #dddddd;
+  grid-template-columns: 1fr auto;
+  display: grid;
+}
+
+.div--chat-input > input[type="text"] {
+  margin-right: 20px;
+
+  background: none;
+  border: none;
+  outline-width: 2px;
+}
+.div--chat-input > input::placeholder {
+  color: #75757d;
+}
+
+.div--chat-input > button {
+  border: none;
+  padding: 0;
+
+  color: #6b96d8;
+  background: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  outline-width: 2px;
+  cursor: pointer;
+}
