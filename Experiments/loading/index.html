@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/normalize.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div onclick="resetCircle()" class="circle--container-1"></div>
+    <div onclick="resetCircle()" class="circle--container-2"></div>
+    <div onclick="animateCircle()" class="circle"></div>
+  </div>
+
+  <style>
+    :root {
+      --color--awesome-pink: #FF2372;
+      --color--han-purple: #6610F2;
+      --color--electric-purple: #C200FB;
+      --color--mikado-yellow: #FFBE0B;
+      --color--vivid-orange: #FF600B;
+      --color--ferrari-red: #FF2800;
+      --color--spring-green: #00F0B5;
+      --color--hacker-green: #46F909;
+      --color--electric-blue: #56F4FA;
+      --color--classic-blue: #2475FF;
+      --color--gunmetal-gray: #2D3047;
+      --color--spanish-gray: #929398;
+      --color--light-gray: #D2D2D7;
+      --color--soft-gray: #EBEBF0;
+      --color--white: #F9F9F9;
+      --color--black: #141414;
+    }
+
+    body {
+      background: #001f31;
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 50px;
+      margin-left: 50px;
+      width: 150px;
+    }
+
+    .circle {
+      grid-column: 1 / 2;
+      grid-row: 1 / 1;
+      filter:blur(4px) contrast(4);
+      height: 36px;
+      width: 36px;
+      border-radius: 100%;
+      background: var(--color--electric-blue);
+      cursor: pointer;
+      transform: rotate(0deg);
+    }
+
+    .circle--container-1 {
+      grid-column: 2 / 2;
+      grid-row: 1 / 1;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      background: #46b9ff;
+      cursor: pointer;
+    }
+
+    .circle--container-2 {
+      grid-column: 1 / 1;
+      grid-row: 1 / 1;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      background: #46b9ff;
+      cursor: pointer;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+    function animateCircle() {
+      const circleTL = new TimelineLite();
+      circleTL
+        .to(".circle--container-2", 0.3, {
+          scaleX: 1.8,
+          ease: Circ.easeIn
+        })
+        .to(".circle--container-2", 0.6, {
+          scaleX: 1,
+          ease: Circ.easeOut
+        })
+        .to(".circle", 0.3, {
+          x: 33,
+          scale: 0.4,
+          scaleX: 1.4,
+          "borderRadius": "40%",
+          ease: Circ.easeIn
+        }, "-=0.9")
+        .to(".circle--container-1", 0.3, {
+          scaleX: 1.8,
+          ease: Circ.easeIn
+        }, "-=1.5")
+        .to(".circle", 0.3, {
+          x: 75,
+          scale: 1,
+          "borderRadius": "50%",
+          ease: Circ.easeOut
+        }, "-=0.6")
+        .to(".circle--container-1", 0.3, {
+          scaleX: 1,
+          ease: Circ.easeOut
+        }, "-=1.9");
+    }
+    function resetCircle() {
+      TweenMax.to(".circle", 0.1, {
+        x: 0
+      });
+
+    }
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+</body>
+
+
+
+</html>
